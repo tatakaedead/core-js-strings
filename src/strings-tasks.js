@@ -184,8 +184,16 @@ function removeLastOccurrences(/* str, value */) {
  *   sumOfCodes('') => 0
  *   sumOfCodes() => 0
  */
-function sumOfCodes(/* str */) {
-  throw new Error('Not implemented');
+function sumOfCodes(str) {
+  if (str === undefined || str === null) {
+    return 0;
+  }
+  const newLengthStr = str.length;
+  let sum = 0;
+  for (let i = 0; newLengthStr > i; i += 1) {
+    sum += str[i].charCodeAt();
+  }
+  return sum;
 }
 
 /**
@@ -231,8 +239,10 @@ function endsWith(str, substr) {
  *   formatTime(0, 45) => "00:45"
  *   formatTime(0, 0) => "00:00"
  */
-function formatTime(/* minutes, seconds */) {
-  throw new Error('Not implemented');
+function formatTime(minutes, seconds) {
+  const newMinutes = minutes.toString().padStart(2, '0');
+  const newSeconds = seconds.toString().padStart(2, '0');
+  return `${newMinutes}:${newSeconds}`;
 }
 
 /**
@@ -245,8 +255,9 @@ function formatTime(/* minutes, seconds */) {
  *   reverseString('abcdef') => 'fedcba'
  *   reverseString('12345') => '54321'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  const reverse = str.split('').reverse().join('');
+  return reverse;
 }
 
 /**
@@ -260,8 +271,9 @@ function reverseString(/* str */) {
  *   orderAlphabetically('textbook') => 'bekoottx'
  *   orderAlphabetically('abc123xyz') => '123abcxyz'
  */
-function orderAlphabetically(/* str */) {
-  throw new Error('Not implemented');
+function orderAlphabetically(str) {
+  const alphabetStr = str.split('').sort();
+  return alphabetStr.join('');
 }
 
 /**
@@ -294,8 +306,20 @@ function containsSubstring(str, substring) {
  *   countVowels('aEiOu') => 5
  *   countVowels('XYZ') => 1
  */
-function countVowels(/* str */) {
-  throw new Error('Not implemented');
+function countVowels(str) {
+  if (str === '') {
+    return 0;
+  }
+
+  const vowels = 'AEIOUYaeiouy';
+  const newVowels = vowels.split('');
+  let result = 0;
+  for (let i = 0; str.length > i; i += 1) {
+    if (newVowels.includes(str[i])) {
+      result += 1;
+    }
+  }
+  return result;
 }
 
 /**
