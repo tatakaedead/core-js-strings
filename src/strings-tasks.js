@@ -152,8 +152,10 @@ function repeatString(value, count) {
  *   removeFirstOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeFirstOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeFirstOccurrences(str, value) {
+  if (str.includes(value)) {
+    return str.replace(value, '');
+  }
 }
 
 /**
@@ -386,8 +388,10 @@ function findLongestWord(sentence) {
  *   reverseWords('Hello World') => 'olleH dlroW'
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
-function reverseWords(/* str */) {
-  throw new Error('Not implemented');
+function reverseWords(str) {
+  const newReverseString = str.split('').reverse().join('');
+  const newStr = newReverseString.split(' ').reverse().join(' ');
+  return newStr;
 }
 
 /**
